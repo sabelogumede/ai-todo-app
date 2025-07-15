@@ -1,5 +1,9 @@
 # AI Todo App
 
+<p align="center">
+  <img src="src/logo.svg" alt="AI Todo App Logo" width="100" height="100" />
+</p>
+
 A web-based task management application with multilingual support, built using React and AI-assisted development practices.
 
 ## Features
@@ -17,6 +21,7 @@ A web-based task management application with multilingual support, built using R
 ### Prerequisites
 - Node.js and npm installed
 - Google Cloud Translate API key (for translation feature)
+- `.gitignore` file in your project root to protect sensitive files (already included)
 
 ### Installation
 1. Clone the repository:
@@ -32,6 +37,7 @@ A web-based task management application with multilingual support, built using R
    ```env
    REACT_APP_GOOGLE_TRANSLATE_API_KEY=your_api_key_here
    ```
+   > **Important:** Never commit your `.env` file to git. It is already included in `.gitignore` for your safety.
 4. Start the development server:
    ```sh
    npm start
@@ -51,10 +57,12 @@ A web-based task management application with multilingual support, built using R
 
 ## Deployment
 - Deploy on Vercel for best results. Set your API key in Vercel's environment variables.
+- You can use an SVG logo as your favicon by updating the `<link rel="icon" ...>` in `public/index.html`.
 
 ## Development
 - Built with React, Tailwind CSS, and AI-assisted code generation.
 - Code is modular, with hooks and services for state and API logic.
+- `.gitignore` is set up to exclude sensitive and unnecessary files.
 
 ## License
 MIT
