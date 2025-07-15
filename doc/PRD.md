@@ -27,7 +27,7 @@ The AI Todo App is a web-based task management application that allows users to 
 
 ## 6. Architecture
 - **Components:** TodoList, TodoItem, AddTodoForm, LanguageSelector.
-- **Services:** TranslationService, LocalStorageService.
+- **Services:** TranslationService.
 - **Hooks:** useTodos, useTranslation.
 - **Data Model:**
   ```js
