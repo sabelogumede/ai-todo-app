@@ -7,9 +7,14 @@ import LanguageSelector from './components/LanguageSelector';
 import './styles/globals.css';
 
 // ErrorAlert component for displaying user-friendly error messages
+// Props:
+// - error: The error message to display (string or null)
+// - onClose: Callback function to clear the error message
 const ErrorAlert = ({ error, onClose }) => {
   if (!error) return null;
   return (
+    // Render a styled alert div with Tailwind CSS for error display
+    // Includes a red background, border, text, padding, and flexbox for layout
     <div className="bg-red-100 border border-red-300 text-red-800 px-4 py-2 rounded mb-4 flex items-center justify-between" role="alert">
       <span>{error}</span>
       <button onClick={onClose} aria-label="Close error message" className="ml-4 text-red-600 hover:text-red-800">&times;</button>
@@ -22,33 +27,46 @@ const App = () => {
   const { isTranslating, selectedLanguage, setSelectedLanguage, translateText } = useTranslation();
   // State for translation error
   const [translationError, setTranslationError] = useState(null);
-
+  // Function to handle translation of a single todo item
+  // Parameters:
+  // - todoId: ID of the todo to translate
+  // - originalText: Original text of the todo
   const handleTranslate = async (todoId, originalText) => {
+    // Skip translation if the selected language is English
     if (selectedLanguage === 'en') return;
     try {
+      // Translate the text using the translateText function
       const translatedText = await translateText(originalText, selectedLanguage);
+      // Update the todo's text with the translated text and language
       updateTodoText(todoId, translatedText, selectedLanguage);
+      // Clear any existing translation error
       setTranslationError(null);
     } catch (error) {
+      // Set an error message if translation fails
       setTranslationError('Translation failed, please try again.');
     }
   };
-
+  // Function to translate all non-completed todos
   const handleTranslateAll = async () => {
+    // Skip if the selected language is English
     if (selectedLanguage === 'en') return;
     try {
+      // Iterate over all todos
       for (const todo of todos) {
         if (!todo.completed) {
           await handleTranslate(todo.id, todo.originalText);
         }
       }
+      // Clear any existing translation error
       setTranslationError(null);
     } catch (error) {
+      // Set an error message if translation fails
       setTranslationError('Translation failed, please try again.');
     }
   };
 
   return (
+    // Main container with full-screen height, light gray background, and padding
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Header */}

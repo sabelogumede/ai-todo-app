@@ -1,9 +1,5 @@
 # AI Todo App
 
-<p align="center">
-  <img src="src/logo.svg" alt="AI Todo App Logo" width="100" height="100" />
-</p>
-
 A web-based task management application with multilingual support, built using React and AI-assisted development practices.
 
 ## Features
